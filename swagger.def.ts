@@ -1,9 +1,5 @@
 import pkgJson from './package.json';
-// import { swApexRouter } from './src/routes/apex/swagger';
-// import { swPaymentCheckoutRouter } from './src/routes/checkoutPaymentOrders/swagger';
-// import { swPublicApiRouter } from './src/routes/publicApi/swagger';
-// import { swPaymentStripeRouter } from './src/routes/stripePaymentOrders/swagger';
-// import { swUserRouter } from './src/routes/users/swagger';
+import usersSwagger from './src/routes/users/swagger';
 
 const port = process.env.PORT || 8000;
 const server =
@@ -43,11 +39,7 @@ const swagger = {
   security: [{ AuthorizationKey: [] }, { UserIdKey: [] }],
 
   paths: {
-    // ...swUserRouter,
-    // ...swApexRouter,
-    // ...swPaymentStripeRouter,
-    // ...swPaymentCheckoutRouter,
-    // ...swPublicApiRouter,
+    ...usersSwagger,
   },
 };
 export default swagger;
