@@ -1,12 +1,14 @@
 todo:
 
-- setup precommit hooks
-- POST endpoint example
+- GET single user endpoint example
 - PATCH endpoint example
 - DELETE endpoint example
-- tests
 
 # Sunmait Career Day backend
+
+## API Docs
+
+http://localhost:3000/api/v1/api-docs/
 
 ## Setup development
 

@@ -11,6 +11,7 @@ class DbContext {
       host: settings.host,
       port: settings.port,
       dialect: settings.dialect,
+      logging: false,
     });
     InitEntities.init(this._sequelize);
   }

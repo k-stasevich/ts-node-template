@@ -50,5 +50,5 @@ const sendBadData = (res: Response, errors: BadDataError[]) => {
     data: { errors: errorsToSend },
     code: RESPONSE_CODE.VALIDATION_ERROR,
   });
-  return res.status(422).json(error);
+  return res.status(422).json(error.toJSON().response);
 };

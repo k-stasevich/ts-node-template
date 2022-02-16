@@ -37,6 +37,11 @@ class UnauthenticatedError extends BaseError {
     super({ msg: 'Unauthenticated', status: 401 });
   }
 }
+class NotFoundError extends BaseError {
+  constructor() {
+    super({ msg: 'Not Found', status: 404 });
+  }
+}
 
 class UnprocessableEntityError extends BaseError {
   constructor(options: { code?: string; data?: object } = {}) {
@@ -52,6 +57,7 @@ class InternalServerError extends BaseError {
 
 export const createError = {
   Unauthenticated: UnauthenticatedError,
+  NotFound: NotFoundError,
   UnprocessableEntity: UnprocessableEntityError,
   InternalServerError: InternalServerError,
 };

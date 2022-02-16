@@ -22,14 +22,14 @@ export const swaggerBuilder = {
     return paramsSchema(schema.query, 'query');
   },
 
-  response(responseConfig: EndpointSchema['response']) {
+  response(schema: EndpointSchema) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const result: any = {};
 
-    Object.keys(responseConfig).forEach((status: string) => {
+    Object.keys(schema.response).forEach((status: string) => {
       result[status] = {
-        ...getBodySchema(responseConfig[status].schema),
-        ...responseConfig[status].swaggerOptions,
+        ...getBodySchema(schema.response[status].schema),
+        ...schema.response[status].swaggerOptions,
       };
     });
 

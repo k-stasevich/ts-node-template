@@ -7,13 +7,15 @@ export const buildResponse = (example: object | object[]) => {
 };
 
 export const schemaErrorExample = {
+  notFound() {
+    return new createError.NotFound().toJSON().response;
+  },
+
   unprocessableEntity(code: string, data?: object) {
-    const error = new createError.UnprocessableEntity({ code, data });
-    return error.toJSON().response;
+    return new createError.UnprocessableEntity({ code, data }).toJSON().response;
   },
 
   internalServerError() {
-    const error = new createError.InternalServerError();
-    return error.toJSON().response;
+    return new createError.InternalServerError().toJSON().response;
   },
 };

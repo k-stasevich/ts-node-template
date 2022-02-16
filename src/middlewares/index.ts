@@ -1,2 +1,2 @@
 export * from './authMiddleware';
-export * from './schemaValidatorMiddleware';
+export * from './schemaValidator';
