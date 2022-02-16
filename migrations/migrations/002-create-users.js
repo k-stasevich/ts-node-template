@@ -1,13 +1,13 @@
 'use strict';
 
-const { withMigration } = require('../utils');
+const { withTransaction } = require('../utils');
 
 const TABLE_NAME = 'Users';
 const DB_SCHEMA = process.env.DB_SCHEMA;
 const target = { tableName: TABLE_NAME, schema: DB_SCHEMA };
 
 module.exports = {
-  up: withMigration((queryInterface, DataTypes, transaction) => {
+  up: withTransaction((queryInterface, DataTypes, transaction) => {
     return queryInterface.createTable(
       target,
       {
@@ -31,7 +31,7 @@ module.exports = {
       { transaction },
     );
   }),
-  down: withMigration((queryInterface, DataTypes, transaction) => {
+  down: withTransaction((queryInterface, DataTypes, transaction) => {
     return queryInterface.dropTable(target);
   }),
 };

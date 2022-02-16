@@ -1,4 +1,4 @@
-const withMigration = (migrationFunc) => {
+const withTransaction = (migrationFunc) => {
   return async (queryInterface, DataTypes) => {
     const transaction = await queryInterface.sequelize.transaction();
     try {
@@ -12,5 +12,5 @@ const withMigration = (migrationFunc) => {
 };
 
 module.exports = {
-  withMigration,
+  withTransaction,
 };

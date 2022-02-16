@@ -32,7 +32,7 @@ npm test
 
 ### File naming
 
-All files in camelCase. Exception - migrations(snake_case)
+All files in camelCase. Exception - migrations(kebab-case)
 
 ### Backend architecture
 
