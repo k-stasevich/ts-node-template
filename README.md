@@ -3,6 +3,7 @@ todo:
 - GET single user endpoint example
 - PATCH endpoint example
 - DELETE endpoint example
+- add second entity and demonstrate JOIN behavior
 
 # Sunmait Career Day backend
 
