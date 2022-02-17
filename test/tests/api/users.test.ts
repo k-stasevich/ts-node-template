@@ -6,7 +6,7 @@ import { testFactories } from '../../factories/index';
 import faker from '@faker-js/faker';
 
 describe('API /users', () => {
-  beforeEach(async () => {
+  beforeAll(async () => {
     await reapplyMigrations();
   });
 
