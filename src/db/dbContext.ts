@@ -1,16 +1,16 @@
 import { Sequelize } from 'sequelize';
-import { settingsProvider } from '../utils/settingsProvider';
+import { settings } from '../utils/settings';
 import { InitEntities } from './initEntities';
 
 class DbContext {
   private _sequelize: Sequelize;
 
   constructor() {
-    const settings = settingsProvider.getDatabaseSettings();
-    this._sequelize = new Sequelize(settings.database, settings.username, settings.password, {
-      host: settings.host,
-      port: settings.port,
-      dialect: settings.dialect,
+    const dbConfig = settings.db();
+    this._sequelize = new Sequelize(dbConfig.database, dbConfig.username, dbConfig.password, {
+      host: dbConfig.host,
+      port: dbConfig.port,
+      dialect: dbConfig.dialect,
       logging: false,
     });
     InitEntities.init(this._sequelize);

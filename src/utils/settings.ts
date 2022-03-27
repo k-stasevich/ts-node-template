@@ -3,13 +3,21 @@ process.env.NODE_CONFIG_DIR = path.resolve('src', 'config');
 import config from 'config';
 import { Dialect } from 'sequelize/types';
 
-class SettingsProvider {
-  getDatabaseSettings(): DatabaseSettings {
+class Settings {
+  get main() {
+    return {
+      appName: config.get<string>('appName'),
+      nodeEnv: config.get<'development' | 'production'>('nodeEnv'),
+      env: config.get<string>('env'),
+    };
+  }
+
+  db(): DatabaseSettings {
     return config.get<DatabaseSettings>('database');
   }
 }
 
-export const settingsProvider = new SettingsProvider();
+export const settings = new Settings();
 
 interface DatabaseSettings {
   dialect: Dialect;

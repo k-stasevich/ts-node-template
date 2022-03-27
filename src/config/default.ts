@@ -2,6 +2,10 @@ const path = require('path');
 require('dotenv').config({ path: path.resolve('.env') });
 
 module.exports = {
+  appName: process.env.APP_NAME,
+  nodeEnv: process.env.NODE_ENV,
+  env: process.env.ENV,
+
   database: {
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
@@ -11,7 +15,3 @@ module.exports = {
     dialect: 'postgres',
   },
 };
-
-// function toBoolean(value?: string) {
-//   return value === 'true';
-// }

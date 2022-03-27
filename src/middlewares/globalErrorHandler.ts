@@ -1,17 +1,18 @@
-import { NextFunction, Request, Response } from 'express';
+import { NextFunction } from 'express';
+import { Req, Res } from '../interfaces';
 import { BaseError, createError } from '../utils/errors';
 
-export const globalErrorHandler = (err: Error, req: Request, res: Response, next: NextFunction) => {
+export const globalErrorHandler = (err: Error, req: Req, res: Res, next: NextFunction) => {
   if (err instanceof BaseError) {
     return sendError(res, err);
   }
 
   const serverError = new createError.InternalServerError({ ...err });
-  console.error(JSON.stringify(serverError.toJSON()));
+  res.locals.logger.error(err.stack);
   return sendError(res, serverError);
 };
 
-const sendError = (res: Response, err: BaseError) => {
+const sendError = (res: Res, err: BaseError) => {
   const json = err.toJSON();
   return res.status(json.status).json(json.response);
 };

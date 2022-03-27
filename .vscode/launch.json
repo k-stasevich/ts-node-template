@@ -20,7 +20,7 @@
     {
       "type": "node",
       "request": "attach",
-      "name": "Node: Nodemon",
+      "name": "Attach to Node (pick)",
       "processId": "${command:PickProcess}",
       "restart": true,
       "protocol": "inspector"
