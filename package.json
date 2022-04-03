@@ -1,10 +1,10 @@
 {
-  "name": "sunmait_career_day_be_boilerplate",
+  "name": "ts-node-template",
   "version": "0.0.1",
   "description": "",
   "scripts": {
     "build": "tsc",
-    "start": "node_modules/pm2/bin/pm2-runtime start dist/src/index.js -i max --name sunmait-career-day",
+    "start": "node_modules/pm2/bin/pm2-runtime start dist/src/index.js -i max --name ts-node-template",
     "dev": "nodemon src/index.ts",
     "debug": "nodemon --exec 'node --inspect=0.0.0.0:9229 --require ts-node/register src/index.ts'",
     "compose": "docker-compose up",

@@ -36,8 +36,8 @@ export interface EndpointSchemaSwaggerOptions {
 // added to `res.locals`
 //
 // Usage example:
-// const controller = (req: Request, res: Response<unknown, ResLocals.AuthenticatedUser>) => {
-//   const { userId } = res.locals;
+// const controller = (req: Req, res: Res<{foo: string}>) => {
+//   const { foo } = res.locals;
 // };
 export namespace ResLocals {
   export interface AuthenticatedUser {
