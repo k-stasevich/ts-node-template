@@ -1,11 +1,11 @@
 import { Sequelize } from 'sequelize/types';
 
-import { init as initUserEntity } from './models/user';
+import { init as initUserModel } from './models/user';
 
-export class InitEntities {
+export class ModelFactory {
   static init(sequelize: Sequelize) {
     // models
-    initUserEntity(sequelize);
+    initUserModel(sequelize);
 
     // relations
   }

@@ -1,20 +1,21 @@
-import { Sequelize, Model, DataTypes, InferAttributes, InferCreationAttributes } from 'sequelize';
+import {
+  Sequelize,
+  Model,
+  DataTypes,
+  InferAttributes,
+  InferCreationAttributes,
+  CreationOptional,
+} from 'sequelize';
 
-export interface UserAttributes {
-  id: number;
-  name: string;
-}
+export class UserModel extends Model<
+  InferAttributes<UserModel>,
+  InferCreationAttributes<UserModel>
+> {
+  declare id: CreationOptional<string>;
+  declare name: string;
 
-export interface UserCreationAttributes extends Omit<UserAttributes, 'id'> {}
-
-export class UserModel
-  extends Model<UserAttributes, UserCreationAttributes>
-  implements UserAttributes
-{
-  id!: number;
-  name!: string;
-  createdAt!: Date;
-  updatedAt!: Date;
+  declare createdAt: CreationOptional<Date>;
+  declare updatedAt: CreationOptional<Date>;
 }
 
 export const init = (sequelize: Sequelize) => {
@@ -28,6 +29,8 @@ export const init = (sequelize: Sequelize) => {
       name: {
         type: DataTypes.STRING,
       },
+      createdAt: DataTypes.DATE,
+      updatedAt: DataTypes.DATE,
     },
     {
       tableName: 'Users',

@@ -1,6 +1,6 @@
 import { Sequelize } from 'sequelize';
 import { settings } from '../utils/settings';
-import { InitEntities } from './initEntities';
+import { ModelFactory } from './modelFactory';
 
 class DbContext {
   private _sequelize: Sequelize;
@@ -13,7 +13,7 @@ class DbContext {
       dialect: dbConfig.dialect,
       logging: false,
     });
-    InitEntities.init(this._sequelize);
+    ModelFactory.init(this._sequelize);
   }
 
   public async connect(): Promise<void> {

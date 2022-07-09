@@ -1,5 +1,5 @@
+import { CreationAttributes } from 'sequelize/types';
 import { UserModel } from '../../db/models';
-import { UserCreationAttributes } from '../../db/models/user';
 import { ArrayResponse, Pagination } from '../../interfaces';
 
 class UserService {
@@ -33,7 +33,7 @@ class UserService {
     return user;
   }
 
-  async createUser(data: UserCreationAttributes): Promise<UserModel> {
+  async createUser(data: CreationAttributes<UserModel>): Promise<UserModel> {
     const result = await UserModel.create(data);
     return result;
   }
