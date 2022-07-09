@@ -6,6 +6,8 @@ module.exports = {
   nodeEnv: process.env.NODE_ENV,
   env: process.env.ENV,
 
+  logLevel: process.env.LOG_LEVEL,
+
   database: {
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,

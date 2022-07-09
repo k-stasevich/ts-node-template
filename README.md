@@ -30,6 +30,10 @@ npm run dev                 # Start server
 npm test
 ```
 
+## Production configuration
+
+- Set `LOG_LEVEL=debug` for production to log all levels. For dev we only interested in `warn` and `error` levels
+
 ## Architecture
 
 ### File naming

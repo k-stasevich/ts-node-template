@@ -2,13 +2,16 @@ import path from 'path';
 process.env.NODE_CONFIG_DIR = path.resolve('src', 'config');
 import config from 'config';
 import { Dialect } from 'sequelize/types';
+import { LOG_LEVEL } from '../constants';
 
 class Settings {
-  get main() {
+  get general() {
     return {
       appName: config.get<string>('appName'),
       nodeEnv: config.get<'development' | 'production'>('nodeEnv'),
       env: config.get<string>('env'),
+
+      logLevel: config.get<LOG_LEVEL>('logLevel'),
     };
   }
 

@@ -4,20 +4,25 @@ import * as uuid from 'uuid';
 import { format as utilFormat } from 'util';
 import { Req, Res } from '../../interfaces';
 import { getLogMeta } from './utils';
+import { settings } from '../settings';
+import { LOG_LEVEL } from '../../constants';
 
 const SPLAT = Symbol.for('splat');
 
 const levels = {
-  error: 0,
-  warn: 1,
-  info: 2,
-  http: 3,
-  debug: 4,
+  [LOG_LEVEL.ERROR]: 0,
+  [LOG_LEVEL.WARN]: 1,
+  [LOG_LEVEL.INFO]: 2,
+  [LOG_LEVEL.HTTP]: 3,
+  [LOG_LEVEL.DEBUG]: 4,
 };
 
 const level = () => {
-  // log all levels always
-  return 'debug';
+  const { logLevel } = settings.general;
+
+  if (!levels.hasOwnProperty(logLevel)) throw new Error(`Unsupported log level "${logLevel}"`);
+
+  return settings.general.logLevel;
 };
 
 const colors = {
