@@ -1,12 +1,12 @@
-import { UserEntity } from '../../db/entities';
-import { UserCreationAttributes } from '../../db/entities/userEntity';
+import { UserModel } from '../../db/models';
+import { UserCreationAttributes } from '../../db/models/user';
 import { ArrayResponse, Pagination } from '../../interfaces';
 
 class UserService {
-  async getUsers(options: Partial<Pagination> = {}): Promise<ArrayResponse<UserEntity>> {
+  async getUsers(options: Partial<Pagination> = {}): Promise<ArrayResponse<UserModel>> {
     const { limit = 100, offset = 0 } = options;
 
-    const result = await UserEntity.findAndCountAll({
+    const result = await UserModel.findAndCountAll({
       limit,
       offset,
       attributes: ['id', 'name'],
@@ -22,10 +22,10 @@ class UserService {
     };
   }
 
-  async getUser(options: { id: string }): Promise<UserEntity | null> {
+  async getUser(options: { id: string }): Promise<UserModel | null> {
     const { id } = options;
 
-    const user = await UserEntity.findOne({
+    const user = await UserModel.findOne({
       where: { id },
       attributes: ['id', 'name'],
     });
@@ -33,8 +33,8 @@ class UserService {
     return user;
   }
 
-  async createUser(data: UserCreationAttributes): Promise<UserEntity> {
-    const result = await UserEntity.create(data);
+  async createUser(data: UserCreationAttributes): Promise<UserModel> {
+    const result = await UserModel.create(data);
     return result;
   }
 }

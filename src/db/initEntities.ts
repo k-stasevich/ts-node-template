@@ -1,6 +1,6 @@
 import { Sequelize } from 'sequelize/types';
 
-import { init as initUserEntity } from './entities/userEntity';
+import { init as initUserEntity } from './models/user';
 
 export class InitEntities {
   static init(sequelize: Sequelize) {

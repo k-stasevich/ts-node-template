@@ -1,4 +1,4 @@
-import { Sequelize, Model, DataTypes } from 'sequelize';
+import { Sequelize, Model, DataTypes, InferAttributes, InferCreationAttributes } from 'sequelize';
 
 export interface UserAttributes {
   id: number;
@@ -7,7 +7,7 @@ export interface UserAttributes {
 
 export interface UserCreationAttributes extends Omit<UserAttributes, 'id'> {}
 
-export class UserEntity
+export class UserModel
   extends Model<UserAttributes, UserCreationAttributes>
   implements UserAttributes
 {
@@ -18,7 +18,7 @@ export class UserEntity
 }
 
 export const init = (sequelize: Sequelize) => {
-  UserEntity.init(
+  UserModel.init(
     {
       id: {
         type: DataTypes.UUIDV4,
