@@ -1,12 +1,12 @@
 import { CreationAttributes } from 'sequelize/types';
-import { UserModel } from '../../db/models';
+import { Model, models } from '../../db/models';
 import { ArrayResponse, Pagination } from '../../interfaces';
 
 class UserService {
-  async getUsers(options: Partial<Pagination> = {}): Promise<ArrayResponse<UserModel>> {
+  async getUsers(options: Partial<Pagination> = {}): Promise<ArrayResponse<Model.User>> {
     const { limit = 100, offset = 0 } = options;
 
-    const result = await UserModel.findAndCountAll({
+    const result = await models.User.findAndCountAll({
       limit,
       offset,
       attributes: ['id', 'name'],
@@ -22,10 +22,10 @@ class UserService {
     };
   }
 
-  async getUser(options: { id: string }): Promise<UserModel | null> {
+  async getUser(options: { id: string }): Promise<Model.User | null> {
     const { id } = options;
 
-    const user = await UserModel.findOne({
+    const user = await models.User.findOne({
       where: { id },
       attributes: ['id', 'name'],
     });
@@ -33,8 +33,8 @@ class UserService {
     return user;
   }
 
-  async createUser(data: CreationAttributes<UserModel>): Promise<UserModel> {
-    const result = await UserModel.create(data);
+  async createUser(data: CreationAttributes<Model.User>): Promise<Model.User> {
+    const result = await models.User.create(data);
     return result;
   }
 }

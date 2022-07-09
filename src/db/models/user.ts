@@ -19,7 +19,8 @@ export class UserModel extends Model<
 }
 
 export const init = (sequelize: Sequelize) => {
-  UserModel.init(
+  return sequelize.define<UserModel>(
+    'User',
     {
       id: {
         type: DataTypes.UUIDV4,
@@ -34,7 +35,6 @@ export const init = (sequelize: Sequelize) => {
     },
     {
       tableName: 'Users',
-      sequelize,
       schema: process.env.DB_SCHEMA,
     },
   );
