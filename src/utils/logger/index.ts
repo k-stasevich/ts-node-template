@@ -18,11 +18,11 @@ const levels = {
 };
 
 const level = () => {
-  const { logLevel } = settings.general;
+  const { LOG_LEVEL } = settings.general;
 
-  if (!levels.hasOwnProperty(logLevel)) throw new Error(`Unsupported log level "${logLevel}"`);
+  if (!levels.hasOwnProperty(LOG_LEVEL)) throw new Error(`Unsupported log level "${LOG_LEVEL}"`);
 
-  return settings.general.logLevel;
+  return LOG_LEVEL;
 };
 
 const colors = {

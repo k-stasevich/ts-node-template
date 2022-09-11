@@ -7,11 +7,11 @@ import { LOG_LEVEL } from '../constants';
 class Settings {
   get general() {
     return {
-      appName: config.get<string>('appName'),
-      nodeEnv: config.get<'development' | 'production'>('nodeEnv'),
-      env: config.get<string>('env'),
+      APP_NAME: config.get<string>('appName'),
+      NODE_ENV: config.get<'development' | 'production'>('nodeEnv'),
+      ENV: config.get<string>('env'),
 
-      logLevel: config.get<LOG_LEVEL>('logLevel'),
+      LOG_LEVEL: config.get<LOG_LEVEL>('logLevel'),
     };
   }
 
