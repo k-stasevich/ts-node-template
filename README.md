@@ -8,6 +8,10 @@
 
 # PROJECT_NAME
 
+## How to start project
+
+Search for '#PROJECT_INIT' to update all template places to be a project specific
+
 ## API Docs
 
 http://localhost:3000/api/v1/api-docs/
@@ -82,8 +86,9 @@ src/routes/<endpoints_folder>/utils.ts
 
 ### Typescript interfaces
 
-1. Don't
-2. If interface/type is needed only for this specific file and nowhere else - put it on the bottom of file
-   1. don't export it to not overload autoimport's autocomplete
-3. If interface/type is reusable - locate it in `src/interaces/index.ts`
-   1. Yes, it will be a mess of interfaces. If there's clear domain of some interfaces - create separate file for it in `src/interfaces` folder, otherwise don't create new file for a single interface - mess of interfaces in `src/interfaces/index.ts` is better than mess of million of small files in `src/interfaces` folder
+1. If interface/type is needed only for a specific file and nowhere else:
+   1. put it on the bottom of file
+   2. don't export it to not overload autoimport's autocomplete
+2. If interface/type is reusable
+   1. locate it in `src/interaces/index.ts`
+   2. Yes, it will be a mess of interfaces. If there's clear domain of some interfaces - create separate file for it in `src/interfaces` folder, otherwise don't create new file for a single interface - mess of interfaces in `src/interfaces/index.ts` is better than of million of small files in `src/interfaces`.

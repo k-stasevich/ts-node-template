@@ -10,6 +10,6 @@ module.exports = {
   host: process.env.DB_HOST,
   port: process.env.DB_PORT,
   dialect: 'postgres',
-  // TODO: you might want to rename it
+  // #PROJECT_INIT. Change it to `SequelizeMeta<ProjectName>`
   migrationStorageTableName: 'SequelizeMetaNodeTemplate',
 };
