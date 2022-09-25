@@ -10,7 +10,7 @@ import { settings } from '../utils/settings';
 const apiV1 = '/api/v1';
 
 export default (app: express.Application) => {
-  app.use(`${apiV1}/api-docs`, swaggerUI.serve, swaggerUI.setup(swDocument));
+  app.use(`api-docs`, swaggerUI.serve, swaggerUI.setup(swDocument));
 
   app.use(addLoggerToResMiddleware);
   app.use(logHttpMiddleware);
