@@ -19,7 +19,7 @@ export default (app: express.Application) => {
   app.use(`${apiV1}/users`, require('./users').default);
   app.use('/', require('./serverStatus').default);
 
-  if (settings.general.NODE_ENV === 'development') {
+  if (settings.get('NODE_ENV') === 'development') {
     app.use('/logger', require('./logger').default);
   }
 

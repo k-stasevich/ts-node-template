@@ -1,14 +1,14 @@
 const path = require('path');
 require('dotenv').config({ path: path.resolve('.env') });
 
-module.exports = {
-  appName: process.env.APP_NAME,
-  nodeEnv: process.env.NODE_ENV,
-  env: process.env.ENV,
+export default {
+  APP_NAME: process.env.APP_NAME,
+  NODE_ENV: process.env.NODE_ENV,
+  ENV: process.env.ENV,
 
-  logLevel: process.env.LOG_LEVEL,
+  LOG_LEVEL: process.env.LOG_LEVEL,
 
-  database: {
+  DATABASE: {
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE,

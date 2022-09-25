@@ -5,18 +5,15 @@ import { Dialect } from 'sequelize/types';
 import { LOG_LEVEL } from '../constants';
 
 class Settings {
-  get general() {
-    return {
-      APP_NAME: config.get<string>('appName'),
-      NODE_ENV: config.get<'development' | 'production'>('nodeEnv'),
-      ENV: config.get<string>('env'),
-
-      LOG_LEVEL: config.get<LOG_LEVEL>('logLevel'),
-    };
-  }
-
-  db(): DatabaseSettings {
-    return config.get<DatabaseSettings>('database');
+  get(name: 'APP_NAME'): string;
+  get(name: 'ENV'): string;
+  get(name: 'NODE_ENV'): 'development' | 'production';
+  // logging
+  get(name: 'LOG_LEVEL'): LOG_LEVEL;
+  // Database
+  get(name: 'DATABASE'): DatabaseSettings;
+  get(name: string): never {
+    return config.get(name);
   }
 }
 

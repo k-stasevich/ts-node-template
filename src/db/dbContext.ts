@@ -6,7 +6,7 @@ class DbContext {
   private _sequelize: Sequelize;
 
   constructor() {
-    const dbConfig = settings.db();
+    const dbConfig = settings.get('DATABASE');
     this._sequelize = new Sequelize(dbConfig.database, dbConfig.username, dbConfig.password, {
       host: dbConfig.host,
       port: dbConfig.port,

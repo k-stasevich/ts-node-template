@@ -18,7 +18,7 @@ const levels = {
 };
 
 const level = () => {
-  const { LOG_LEVEL } = settings.general;
+  const LOG_LEVEL = settings.get('LOG_LEVEL');
 
   if (!levels.hasOwnProperty(LOG_LEVEL)) throw new Error(`Unsupported log level "${LOG_LEVEL}"`);
 
