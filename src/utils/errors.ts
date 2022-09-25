@@ -16,7 +16,6 @@ export class BaseError extends Error {
   toJSON() {
     const response: {
       code?: string;
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       [p: string]: any; // response may be any
     } = {
       msg: this.message,

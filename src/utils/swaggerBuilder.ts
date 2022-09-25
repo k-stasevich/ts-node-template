@@ -23,7 +23,6 @@ export const swaggerBuilder = {
   },
 
   response(schema: EndpointSchema) {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const result: any = {};
 
     Object.keys(schema.response).forEach((status: string) => {

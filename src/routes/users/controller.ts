@@ -11,7 +11,6 @@ class UsersController {
   }
 
   async getUser(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     req: Request<{ id: string }>,
     res: Response<unknown, ResLocals.AuthenticatedUser>,
   ): Promise<void> {
@@ -25,7 +24,6 @@ class UsersController {
   }
 
   async createUser(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     req: Request<any, any, CreateUserBody>,
     res: Response<unknown, ResLocals.AuthenticatedUser>,
     next: NextFunction,
