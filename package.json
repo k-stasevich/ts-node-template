@@ -13,7 +13,9 @@
     "lint": "eslint ./",
     "lint-fix": "eslint --fix ./",
     "test": "NODE_ENV=development jest",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "start-docker-pg": "docker run -d --name=postgres -p 5432:5432 -e POSTGRES_PASSWORD=postgres mdillon/postgis:11",
+    "stop-docker-pg": "docker rm -f postgres"
   },
   "engines": {
     "node": ">=16.0.0"
